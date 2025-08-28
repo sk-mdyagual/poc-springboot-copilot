@@ -6,26 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "CuentaBancaria")
+@Table(name = "accounts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CuentaBancaria {
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCuenta;
+    private Long idAccount;
 
     @Column(nullable = false, unique = true)
-    private String numero;
+    private String accNumber;
 
     @Column(nullable = false)
-    private Double saldo;
+    private Double balance;
 
     @Column
-    private String tipoCuenta;
+    private String accountType;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
 }
